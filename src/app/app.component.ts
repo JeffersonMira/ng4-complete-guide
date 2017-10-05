@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  feature : string;
+
+  constructor(){ }
+
+  setFeature(feature : string){
+    console.log(feature);
+    this.feature = feature;
+
+  }
 }
