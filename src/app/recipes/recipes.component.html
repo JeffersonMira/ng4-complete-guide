@@ -3,9 +3,12 @@
     <app-recipes-list (recipeWasSelected)="recipeSelected = $event"></app-recipes-list>
   </div>
   <div class="col-md-7">
-    <app-recipes-detail *ngIf="recipeSelected; else infotext" [recipe]="recipeSelected" ></app-recipes-detail>
-    <ng-template #infotext>
-      <p>Please select a Recipe!</p>
-    </ng-template>
+    <!--NEEDED WHEN NOT USING ROUTING-->
+    <!--<app-recipes-detail *ngIf="recipeSelected; else infotext" [recipe]="recipeSelected" ></app-recipes-detail>-->
+    <!--<ng-template #infotext>-->
+      <!--<p>Please select a Recipe!</p>-->
+    <!--</ng-template>-->
+
+    <router-outlet></router-outlet>
   </div>
 </div>

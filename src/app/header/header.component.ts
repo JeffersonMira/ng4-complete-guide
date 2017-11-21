@@ -6,9 +6,9 @@ import {Component, Output, EventEmitter} from "@angular/core";
 })
 export class HeaderComponent{
 
-   @Output() featureChanged = new EventEmitter<string>();
-
-  changeFeature(feature : string){
-      this.featureChanged.emit(feature);
-  }
+  // IT WAS NECESSARY WHEN NOT USING THE ROUTING APPROACH.
+  // @Output() featureChanged = new EventEmitter<string>();
+  // changeFeature(feature : string){
+  //     this.featureChanged.emit(feature);
+  // }
 }

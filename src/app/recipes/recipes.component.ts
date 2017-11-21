@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Recipe} from "./recipe.model";
+// import {Recipe} from "./recipe.model";
 import {RecipeService} from "./recipe.service";
 
 @Component({
@@ -10,15 +10,17 @@ import {RecipeService} from "./recipe.service";
 })
 export class RecipesComponent implements OnInit {
 
-  recipeSelected : Recipe;
+  // recipeSelected : Recipe;   NOT NECESSARY AS USING OBESERVABLE NOW
+  // constructor(private recipeService : RecipeService) { }   NOT NECESSARY AS USING OBESERVABLE NOW
 
-  constructor(private recipeService : RecipeService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.recipeService.selectedRecipe.subscribe(
-      (recipe : Recipe) => {
-        this.recipeSelected = recipe;
-      }
-    );
+    // NOT NECESSARY AS USING OBESERVABLE NOW
+    // this.recipeService.selectedRecipe.subscribe(
+    //   (recipe : Recipe) => {
+    //     this.recipeSelected = recipe;
+    //   }
+    // );
   }
 }

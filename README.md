@@ -80,3 +80,4 @@ cant have more than one in the same element
 
 #Services and dependency injections
 
+# To learn more about observables on Angular - http://reactivex.io/rxjs

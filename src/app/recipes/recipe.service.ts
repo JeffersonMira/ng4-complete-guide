@@ -1,12 +1,12 @@
 import {Recipe} from "./recipe.model";
-import {EventEmitter, Injectable} from '@angular/core';
+import { Injectable} from '@angular/core';
 import {Ingredient} from "../shared/ingredient.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
 
 @Injectable()
 export class RecipeService{
 
-  selectedRecipe = new EventEmitter<Recipe>();
+  // selectedRecipe = new EventEmitter<Recipe>(); NOT NECESSARY AS USING OBSERVABLE
 
   private recipes : Recipe[] = [
     new Recipe('Feijoada',
@@ -25,6 +25,10 @@ export class RecipeService{
 
   getRecipes(){
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number){
+    return this.recipes[id];
   }
 
   constructor(private slservice : ShoppingListService){}

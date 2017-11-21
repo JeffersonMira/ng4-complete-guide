@@ -1,9 +1,15 @@
-<app-header (featureChanged)="setFeature($event)"></app-header>
+<!--<app-header (featureChanged)="setFeature($event)"></app-header>-->
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes *ngIf="feature==='recipes'"></app-recipes>
-      <app-shopping-list *ngIf="feature!=='recipes'"></app-shopping-list>
+
+      <!-- THIS CODE WAS USED BEFORE THE ROUTING APPROACH, TO CONTROL THE MENU. -->
+      <!--<app-recipes *ngIf="feature!=='shopping-list'"></app-recipes>-->
+      <!--<app-shopping-list *ngIf="feature==='shopping-list'"></app-shopping-list>-->
+
+      <!--THIS GUY IS USED TO CONTROL THE ROUTER -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
