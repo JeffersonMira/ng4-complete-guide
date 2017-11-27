@@ -1,10 +1,11 @@
 import {Ingredient} from "../shared/ingredient.model";
 import { EventEmitter } from '@angular/core';
-import {Subject} from "rxjs";
+import {Subject} from "rxjs/Subject";
 
 export class ShoppingListService{
 
   ingredientsChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
   ingredients: Ingredient[] = [
     new Ingredient('apples', 5),
@@ -13,6 +14,10 @@ export class ShoppingListService{
 
   getIngredients(){
     return this.ingredients.slice();
+  }
+
+  getIngredient(index : number){
+    return this.ingredients[index];
   }
 
   addShoppingItem(ingredient : Ingredient){
@@ -29,4 +34,15 @@ export class ShoppingListService{
                                             // an array in a List.
     this.ingredientsChanged.next(this.ingredients.slice());
   }
+
+  updateIngredient(index : number, newIngredient : Ingredient){
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number){
+    this.ingredients.splice(index,1); //it will some items (number passed as second parameter) from the index passed.
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
 }

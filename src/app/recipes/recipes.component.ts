@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 // import {Recipe} from "./recipe.model";
-import {RecipeService} from "./recipe.service";
+
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  providers: [RecipeService] //including it here will make possible for any child file to access this service.
+  // providers: [RecipeService] //including it here will make possible for any child file to access this service.
+  //                             //but if I navifate away it lose all the data that is loaded in the service.
 })
 export class RecipesComponent implements OnInit {
 

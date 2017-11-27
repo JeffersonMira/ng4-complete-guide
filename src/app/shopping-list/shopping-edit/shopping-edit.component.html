@@ -1,19 +1,39 @@
+<!-- THIS FORM IS USING Template Driven APPROACH-->
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <!-- CREATES A LOCAL REF FOR THE FORM, AND MAKES IT A NGFORM OBJECT, WHICH IS MUCH BETTER-->
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" class="form-control" #nameInput>
+          <!--<input type="text" id="name" class="form-control" #nameInput> NO NEED FOR THIS LOCAL REFERENCES AS IT IS USING ANGULAR FORMS-->
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            ngModel
+            required
+          >
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control" #amountInput>
+          <input
+            type="number"
+            id="amount"
+            class="form-control"
+            name="amount"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
+          >
         </div>
         <div class="col-xs-12">
-          <button class="btn btn-success" type="button" (click)="add()">Add</button> <!-- It must not be type='submit', because it could cause prolems-->
-          <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+            {{ editMode ? 'Update' : 'Add'}}
+          </button> <!-- #CHANGED AS IT IS USING NGSUBMIT NOW# It must not be type='submit', because it could cause prolems-->
+          <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>

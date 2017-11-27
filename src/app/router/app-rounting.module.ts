@@ -25,6 +25,4 @@ const appRoutes : Routes = [
   imports: [RouterModule.forRoot(appRoutes)],   //Making the const of Routes the one that is used as the Route controller for the application.
   exports: [RouterModule]
 })
-export class AppRountingModule {
-
-}
+export class AppRountingModule {}
