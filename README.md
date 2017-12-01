@@ -95,3 +95,14 @@ there are two diferent approachs:
 
 
 #FIREBASE - NEED TO CHECK!! VIDEO 233
+https://ng-recipe-book-d4b97.firebaseio.com/ -> this is the project used for this course.
+
+
+More about JWT
+Section 20, Lecture 249
+Want to learn about the Token which is exchanged? 
+
+The following page should be helpful: https://jwt.io/ - specifically, the introduction: https://jwt.io/introduction/
+npm install --save firebase
+
+=> Note the token that is returned by the authService is stores in the Local Storage from the firebase.  
