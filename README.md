@@ -1,3 +1,5 @@
+#Documentation for spring - https://angular.io/
+
 # MyFirstApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
@@ -105,4 +107,24 @@ Want to learn about the Token which is exchanged?
 The following page should be helpful: https://jwt.io/ - specifically, the introduction: https://jwt.io/introduction/
 npm install --save firebase
 
-=> Note the token that is returned by the authService is stores in the Local Storage from the firebase.  
+=> Note the token that is returned by the authService is stores in the Local Storage from the firebase.
+  
+#Protecting Lazy Loaded Routes with canLoad
+  What if you want to use route protection (canActivate  to be precise) on lazily loaded routes?
+  You can add canActivate to the lazy loaded routes but that of course means, that you might load code which in the end can't get accessed anyways. It would be better to check that BEFORE loading the code.
+  You can enforce this behavior by adding the canLoad  guard to the route which points to the lazily loaded module:
+  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule', canLoad: [AuthGuard] } 
+  In this example, the AuthGuard  should implement the CanLoad interface.
+
+
+#Ahead of time compilation
+The compilation of angular to java is done by CLI. But angular compiles my templates into HTML and JS. There are two tipes of it:
+1) Just in Time compilations - Developmento -> production -> App gets downloaded in Browser -> Parsing and compiling to JS
+2) Ahead of Time compilations - Development -> Parsing and Compiling to JS-> Prodution -> App gets downloaded in Browser
+ng build --prod --aot (ahead of time compilation)
+
+
+#Deploying - AWS (Amazon Web Services) - Free approach
+Amazon Web Service S3 free tear
+ng build --prod --aot
+select all the files in DIST folder

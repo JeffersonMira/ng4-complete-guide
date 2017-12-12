@@ -19,7 +19,9 @@ const recipesRoutes : Routes = [
   imports: [
     RouterModule.forChild(recipesRoutes) //just call the 'forRoot' in the root module. We are in the child module.
   ],
-  exports:[RouterModule]
+  exports:[RouterModule],
+  providers : [AuthGuard] // /the authentication is just used here, so there is no reason to have it in the main module at all.
+                          // it just makes sense to do something like this because recipes is lazy loaded
 })
 export class RecipesRoutingModule{
 
