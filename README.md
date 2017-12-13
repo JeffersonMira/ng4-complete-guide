@@ -128,3 +128,7 @@ ng build --prod --aot (ahead of time compilation)
 Amazon Web Service S3 free tear
 ng build --prod --aot
 select all the files in DIST folder
+
+
+#Redux approach - NgRx 
+ to install : npm install --save @ngrx/store
